@@ -1,7 +1,8 @@
 # apps/offers/models.py
 
 from django.db import models
-from apps.accounts.models import User
+from django.conf import settings  # Djangoの設定を読み込む
+## from apps.accounts.models import User←この書き方は循環インポートの原因となる
 
 
 class OfferSiteMaster(models.Model):
