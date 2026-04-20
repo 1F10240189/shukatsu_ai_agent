@@ -1,8 +1,27 @@
-# apps/companies/models.py
+# apps/offers/models.py
 
 from django.db import models
 from apps.accounts.models import User
-from apps.offers.models import OfferSiteMaster
+
+
+class OfferSiteMaster(models.Model):
+    """
+    オファーサイトマスター
+    """
+    name = models.CharField(
+        max_length=100,
+        verbose_name='サイト名'
+    )
+    url = models.URLField(
+        verbose_name='URL'
+    )
+
+    class Meta:
+        db_table = 'offer_site_masters'
+        verbose_name = 'オファーサイト'
+
+    def __str__(self):
+        return self.name
 
 
 class Company(models.Model):
